@@ -92,7 +92,7 @@ To install the application and its dependencies:
 
 7. Install the application's libraries:
 
-        bundle install --without=conflict,borked
+        bundle install --without=borked
 
 8. Optionally configure a custom database, see `config/database.yml` for details.
 
