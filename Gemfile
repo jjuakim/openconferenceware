@@ -16,6 +16,8 @@ gem 'right_aws',    '~> 1.0',   :require => false # For paperclip
 gem 'ruby-openid',  '~> 2.1.0', :require => false # For open_id_authentication
 gem 'rack-openid',  '~> 1.3.1', :require => false # For open_id_authentication
 gem 'sqlite3-ruby', '~> 1.2.0', :require => false # For default database driver
+gem 'rwikibot',     '= 2.0.6',  :require => false,
+                                :git => 'git://github.com/reidab/rwikibot.git'
 
 # Necessary:
 gem 'RedCloth',            '~> 4.2.3'
@@ -23,6 +25,7 @@ gem 'aasm',                '~> 2.1.5'
 gem 'acts-as-taggable-on', '=  1.1.5'
 gem 'color',               '~> 1.4.1'
 gem 'deep_merge',          '~> 0.1.0'
+gem 'comma',               '~> 0.3.2'
 gem 'fastercsv',           '~> 1.5.3'
 gem 'gchartrb',            '~> 0.8.0', :require => 'google_chart'
 gem 'hpricot',             '~> 0.8.2'
@@ -30,10 +33,6 @@ gem 'paperclip',           '~> 2.3.1'
 gem 'vpim',                '=  0.695', :require => 'vpim/icalendar'
 gem 'action_mailer_tls',   '~> 1.1.3'
 gem 'comma',               '~> 0.3.2'
-
-# RB #
-# Disabling this for now, as it isn't actually essential to the app's function
-# gem 'rwikibot',            '= 2.0.7', :path => 'vendor/gems/rwikibot-2.0.7'
 
 gem 'prawn',               '= 0.11.1'
 
