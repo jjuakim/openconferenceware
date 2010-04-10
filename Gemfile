@@ -12,6 +12,7 @@ gem 'mysql',        '~> 2.8.0', :require => false # For commonly used database d
 gem 'right_aws',    '~> 1.0',   :require => false # For paperclip
 gem 'ruby-openid',  '~> 2.1.0', :require => false # For open_id_authentication
 gem 'sqlite3-ruby', '~> 1.2.0', :require => false # For default database driver
+gem 'pg'
 
 # Necessary:
 gem 'RedCloth',            '~> 4.2.3'
