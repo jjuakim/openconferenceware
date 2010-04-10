@@ -101,6 +101,7 @@ class Proposal < ActiveRecord::Base
   has_many :comments
   has_many :user_favorites
   has_many :users_who_favor, :through => :user_favorites, :source => :user
+  has_many :votes
 
   has_and_belongs_to_many :users do
     def fullnames
