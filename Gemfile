@@ -25,6 +25,7 @@ gem 'gchartrb',            '~> 0.8.0', :require => 'google_chart'
 gem 'hpricot',             '~> 0.8.2'
 gem 'paperclip',           '~> 2.3.1'
 gem 'vpim',                '=  0.695', :require => 'vpim/icalendar'
+gem 'rwikibot',            '= 2.0.7', :path => 'vendor/gems/rwikibot-2.0.7'
 
 group :development do
   gem 'capistrano',     :require => false
