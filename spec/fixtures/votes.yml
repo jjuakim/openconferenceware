@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  proposal_id: 1
+  voter: 1
+  relevance: 1
+  interestingness: 1
+  comments: MyText
+
+two:
+  proposal_id: 1
+  voter: 1
+  relevance: 1
+  interestingness: 1
+  comments: MyText
