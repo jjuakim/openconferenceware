@@ -5,6 +5,8 @@ class SpeakerMailer < ActionMailer::Base
 
   # Provide ::strip_tags
   include ActionView::Helpers::SanitizeHelper
+  extend  ActionView::Helpers::SanitizeHelper::ClassMethods
+
 
   def self.configured?
     if SECRETS.email.blank? || SECRETS.email['action_mailer'].blank? || SECRETS.email['default_from_address'] == 'test'
