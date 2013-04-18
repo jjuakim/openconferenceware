@@ -34,10 +34,21 @@
 </p>
 <p>
   <% form_tag(manage_notify_speakers_path(@event), :method => :post) do %>
-    <%= hidden_field_tag 'proposal_ids' %>
+    <%= hidden_field_tag 'proposal_ids', '', :id => 'accepted_email_proposal_ids' %>
     <%= hidden_field_tag 'proposal_status', 'accepted' %>
-    <%= submit_tag 'Notify selected &amp; accepted speakers...',
-      :confirm => "Email uses the snippets 'proposals_acceptance_email_text' and 'proposals_acceptance_email_subject'.\n\nSend email?" %>
+    <% confirm_text = "Email uses the snippets 'proposals_acceptance_email_text' and 'proposals_acceptance_email_subject'.\n\n"
+       unless @event.show_proposal_confirmation_controls
+         confirm_text << "WARNING: the event's 'Show proposal confirmation controls' should be set to YES but it isn't.\n\n"
+       end
+    %>
+    <%= submit_tag 'Send acceptance email to checked speakers', :confirm => "#{confirm_text}Send email?" %>
+  <% end %>
+
+  <% form_tag(manage_notify_speakers_path(@event), :method => :post) do %>
+    <%= hidden_field_tag 'proposal_ids', '', :id => 'rejected_email_proposal_ids' %>
+    <%= hidden_field_tag 'proposal_status', 'rejected' %>
+    <% confirm_text = "Email uses the snippets 'proposals_rejected_email_text' and 'proposals_rejected_email_subject'.\n\n" %>
+    <%= submit_tag 'Send rejection email to checked speakers', :confirm => "#{confirm_text}Send email?" %>
   <% end %>
 </p>
 
@@ -53,7 +64,7 @@ control_colspan = 0
         Email?
       </th>
       <th>
-        Proposal title and speakers
+        Proposal title and speakers, notified date
       </th>
       <% if proposal_statuses? %>
         <th>
@@ -90,6 +101,7 @@ control_colspan = 0
               <%= link_to user.fullname, user_path(user) %>
               <input type="hidden" class="user-email" value="<%= user.email %>">
             <% end %>
+            <span class="notified_at"><%= proposal.notified_at.ergo.strftime("%Y-%m-%d") %></span>
           <% else %>
             <%= proposal.presenter %>
           <% end %>
