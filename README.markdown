@@ -96,6 +96,8 @@ To install the application and its dependencies:
 
 8. Optionally configure a custom database, see `config/database.yml` for details.
 
+9. Copy `config/settings.yml.sample` to `config/settings.yml` and `config/secrets.yml.sample` to `config/secrets.yml`. Open these new files up, read through them, and edit as desired to configure OCW.
+
 9. Create your databases using its native tools or by running:
 
         bundle exec rake db:create:all
@@ -122,32 +124,27 @@ This application runs with insecure settings by default to make it easy to get s
 Customization
 -------------
 
-You can customize the application's appearance and behavior by creating a theme, read the `themes/README.txt` file.
+Many features of OCW can be enabled or disabled to meet your event's needs. These can be toggled by editing flags in `config/settings.yml`.
 
-*WARNING:* If you are running a fork of this software, you should be able to customize everything by modifying the theme and config files. If you find yourself modifying anything else, you may be doing it wrong and should [get in touch](http://github.com/igal/) to discuss if we can figure out a way to make the platform more generic to support your needs.
+*WARNING:* If you are running a fork of this software, you should be able to customize everything by modifying the config files. If you find yourself modifying anything else, you may be doing it wrong and should [get in touch](http://github.com/osbridge/) to discuss if we can figure out a way to make the platform more generic to support your needs.
 
-*WARNING:* The methods and instance variables used within the theme's application layout are in a state of flux as the software evolves. These will be stabilized for the eventual 1.0 release. In the meantime, please watch the changes made to the `bridgepdx` theme's layout and incorporate them into your own, e.g.:
-
-        git log -p themes/bridgepdx/layouts/application.html.erb
+*WARNING:* The methods and instance variables used within the application layout are in a state of flux as the software evolves. These will be stabilized for the eventual 1.0 release.
 
 
-Environmental variables
+Environment variables
 -----------------------
 
-You can alter the application's behavior by setting environmental variables. For example, to use the `bridgepdx` theme you can run:
-    THEME=bridgepdx ./script/server
+You can alter the application's behavior by setting environment variables. For example, to enable query tracing, you can run:
 
-Application behavior is affected by these environmental variables:
+    QUERYTRACE=1 ./script/server
 
-- `THEME=foo` forces the system to use the `foo` theme. You can also put the name of the theme into the `config/theme.txt` file in `RAILS_ROOT`.
+Application behavior is affected by these environment variables:
+
 - `NO_MIGRATION_CHECK=1` disables the check that ensures the database has had all the migrations applied.
 - `EXCEPTION_NOTIFIER=1` forces the exception notification system to run, it's only used by default in `production` and `preview` environments.
 - `EXCEPTION_EMAILS=1` forces the exception notification system to actually send emails, it's only not used by default in `test` and `development` environments.
 - `QUERYTRACE=1` provides logging that shows where each database query is done, handy for identifying unwanted queries.
 - `VERBOSE_LOAD=1` enables verbose logging of all `require` and `load` statements in the application.
-
-The "bridgepdx" theme's behavior is affected by these environmental variables:
-
 - `LOCALCSS=1` forces the use of local CSS files when using the `production` or `preview` environments, these default to using the CSS files on the production servers.
 - `WEBANALYTICS=1` forces the inclusion of web analytics tracking in the layout, this is enabled by default in the `production` environment.
 
