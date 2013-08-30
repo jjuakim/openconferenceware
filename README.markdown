@@ -98,21 +98,21 @@ To install the application and its dependencies:
 
 9. Copy `config/settings.yml.sample` to `config/settings.yml` and `config/secrets.yml.sample` to `config/secrets.yml`. Open these new files up, read through them, and edit as desired to configure OCW.
 
-9. Create your databases using its native tools or by running:
+10. Create your databases using its native tools or by running:
 
         bundle exec rake db:create:all
 
-10. Run the application's interactive setup and follow its instructions -- WARNING, this will destroy your database's contents:
+11. Run the application's interactive setup and follow its instructions -- WARNING, this will destroy your database's contents:
 
         bundle exec rake setup
 
-11. Or run the application's interactive setup which pre-populates your database with sample data -- WARNING, this will destroy your database's contents:
+12. Or run the application's interactive setup which pre-populates your database with sample data -- WARNING, this will destroy your database's contents:
 
         bundle exec rake setup:sample
 
-12. If you intend to setup a production server, you should consider using Phusion Passenger from <http://www.modrails.com/> or Thin <http://code.macournoyer.com/thin/>
+13. If you intend to setup a production server, you should consider using Phusion Passenger from <http://www.modrails.com/> or Thin <http://code.macournoyer.com/thin/>
 
-13. If you intend to deploy releases to a production server, consider using Capistrano and read the `config/deploy.rb` file.
+14. If you intend to deploy releases to a production server, consider using Capistrano and read the `config/deploy.rb` file.
 
 
 Security
