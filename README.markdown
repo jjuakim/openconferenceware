@@ -195,4 +195,4 @@ This free, open source software was made possible by a group of volunteers that 
 Copyright
 ---------
 
-Copyright (c) 2007-2012 Igal Koshevoy, Reid Beels, and others.
+Copyright (c) 2007-2013 Igal Koshevoy, Reid Beels, and others.
