@@ -1,10 +1,31 @@
-<%
-# database.yml customizer
-# =======================
-#
-# Load database configuration from this custom file if it exists:
-custom  = "#{RAILS_ROOT}/config/database~custom.yml"
-# ...otherwise, load database configuration from this default file:
-default = "#{RAILS_ROOT}/config/database~sqlite3.sample.yml"
-%>
-<%= ERB.new(File.read(File.exist?(custom) ? custom : default)).result() %>
+sqlite: &sqlite
+  adapter: sqlite3
+  database: db/<%= Rails.env %>.sqlite3
+ 
+mysql: &mysql
+  adapter: mysql2
+  username: root
+  password:
+  database: myapp_<%= Rails.env %>
+ 
+postgresql: &postgresql
+  adapter: postgresql
+  username: postgres
+  password:
+  database: myapp_<%= Rails.env %>
+  min_messages: ERROR
+ 
+defaults: &amp;defaults
+  pool: 5
+  timeout: 5000
+  host: localhost
+  <<: *<%= ENV['DB'] || "sqlite" %>
+ 
+development:
+  <<: *defaults
+ 
+test:
+  <<: *defaults
+ 
+production:
+  <<: *defaults

@@ -51,6 +51,10 @@ group :test do
   gem 'webrat',           '~> 0.7.0', :require => false
 end
 
+group :development, :test do
+  gem 'pg'
+end
+
 # OPTIONAL LIBRARIES: These libraries upset travis-ci and may cause Ruby or
 # RVM to hang, so only use them when needed.
 if ENV['RUBYDEV']
