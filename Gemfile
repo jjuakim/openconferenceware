@@ -10,6 +10,9 @@ gem 'rake', '~> 0.8.7'
 gem 'rails', '~> 2.3.18'
 
 # Selectively-loaded:
+gem 'sqlite3'
+gem "mysql2", "~> 0.2.7"
+gem 'pg'
 gem 'facets',       '~> 2.8.0', :require => false # For initializers/dependencies.rb
 gem 'right_aws',    '~> 1.0',   :require => false # For paperclip
 gem 'ruby-openid',  '~> 2.1.0', :require => false # For open_id_authentication
@@ -47,12 +50,6 @@ group :test do
   gem 'rspec',            '~> 1.3.2', :require => false
   gem 'rspec-rails',      '~> 1.3.2', :require => false
   gem 'webrat',           '~> 0.7.0', :require => false
-end
-
-group :development, :test do
-  gem 'sqlite3'
-  gem 'mysql2'
-  gem 'pg'
 end
 
 # OPTIONAL LIBRARIES: These libraries upset travis-ci and may cause Ruby or
