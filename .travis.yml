@@ -11,4 +11,4 @@ before_install:
 before_script:
   - mysql -e 'create database ocw_test'
   - psql -c 'create database ocw_test' -U postgres
-  - bundle exec rake db:migrate
+  - bundle exec rake --trace db:migrate
