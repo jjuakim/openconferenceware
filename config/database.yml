@@ -15,7 +15,7 @@ postgresql: &postgresql
   database: myapp_<%= Rails.env %>
   min_messages: ERROR
  
-defaults: &amp;defaults
+defaults: &defaults
   pool: 5
   timeout: 5000
   host: localhost
