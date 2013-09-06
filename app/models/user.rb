@@ -112,7 +112,7 @@ class User < ActiveRecord::Base
 
   #---[ Scopes ]----------------------------------------------------------
 
-  default_order = { :order => 'lower(last_name), lower(first_name)' }
+  default_order = { :order => 'lower(users.last_name), lower(users.first_name)' }
 
   named_scope :by_name, default_order
   named_scope :complete_profiles, { :conditions => {:complete_profile => true} }.reverse_merge!(default_order)
